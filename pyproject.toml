@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "template-app"
+description = "Template repository for python projects"
+readme.content-type = "text/markdown"
+readme.file = "README.md"
+version = "2026.05.18"
+authors = [
+    {name = "Cristian Ordonez", email = "cristianordonezrd@gmail.com"},
+]
+requires-python = ">= 3.12"
+scripts.cli = "template.cli:main"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    { include-group = "test" },
+    { include-group = "docs" },
+    { include-group = "fix" }
+]
+test = [
+    "pytest",
+    "coverage"
+]
+docs = [
+    "sphinx"
+]
+fix = [
+    "pre-commit-uv"
+]
+
+[tool.hatch]
+build.dev-mode-dirs = ["src"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ty]
+
+[tool.codespell]
+
+[tool.pytest]
+
+[tool.coverage]
