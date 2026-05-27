@@ -7,7 +7,7 @@ name = "template-app"
 description = "Template repository for python projects"
 readme.content-type = "text/markdown"
 readme.file = "README.md"
-version = "2026.05.18"
+dynamic = [ "version" ]
 authors = [
     {name = "Cristian Ordonez", email = "cristianordonezrd@gmail.com"},
 ]
@@ -26,22 +26,38 @@ test = [
     "coverage"
 ]
 docs = [
-    "sphinx"
+    "sphinx",
+    "sphinx-argparse"
 ]
 fix = [
     "pre-commit-uv"
 ]
 
 [tool.hatch]
+version.path = "src/template-app/__version__.py"
 build.dev-mode-dirs = ["src"]
 
 [tool.ruff]
 line-length = 88
+indent-width = 4
+lint.ignore = [] # Avoid enforcing specific violations
+lint.unfixable = [] # Avoid fixing specific violations
+lint.fixable = ["ALL"] # Allow fix for all enabled rules (when `--fix`) is provided.
+format.quote-style = "double"
+format.docstring-code-format = true
+format.docstring-code-line-length = "dynamic"
 
 [tool.ty]
+environment.python-version = "3.14"
+src.include = [
+    "src",
+    "tests",
+]
 
 [tool.codespell]
+count = true
+quiet-level = 3
 
-[tool.pytest]
+# [tool.pytest]
 
-[tool.coverage]
+# [tool.coverage]

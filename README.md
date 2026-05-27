@@ -46,7 +46,7 @@ uv python install <version>
 uv python list
 ```
 
-- Install editable package
+- Create virtual environment
 
 ```bash
 uv pip install -e .
@@ -55,7 +55,7 @@ uv pip install -e .
 - Run template app
 
 ```bash
-uv run jarvis
+uv run cli
 ```
 
 # References
