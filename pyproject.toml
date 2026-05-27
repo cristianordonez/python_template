@@ -3,7 +3,7 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "template-app"
+name = "python-template"
 description = "Template repository for python projects"
 readme.content-type = "text/markdown"
 readme.file = "README.md"
@@ -11,9 +11,11 @@ dynamic = [ "version" ]
 authors = [
     {name = "Cristian Ordonez", email = "cristianordonezrd@gmail.com"},
 ]
-requires-python = ">= 3.12"
-scripts.cli = "template.cli:main"
+urls.Repository = "https://github.com/cristianordonez/python-template.git"
+requires-python = ">= 3.9"
+scripts.cli = "python_template.cli.app:main"
 dependencies = []
+
 
 [dependency-groups]
 dev = [
@@ -23,7 +25,7 @@ dev = [
 ]
 test = [
     "pytest",
-    "coverage"
+    "pytest-cov"
 ]
 docs = [
     "sphinx",
@@ -33,9 +35,14 @@ fix = [
     "pre-commit-uv"
 ]
 
+
 [tool.hatch]
-version.path = "src/template-app/__version__.py"
-build.dev-mode-dirs = ["src"]
+version.path = "src/python-template/__version__.py"
+build.dev-mode-dirs = [
+  "src",
+]
+build.targets.sdist.include = [ "src" ]
+build.targets.wheel.packages = [ "src/python-template" ]
 
 [tool.ruff]
 line-length = 88
