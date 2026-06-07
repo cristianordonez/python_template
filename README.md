@@ -1,4 +1,5 @@
- <PROJECT_NAME>
+# python-template
+
 Template repository for creating extendable and modern python cli and gui applications. Well documented configuration files so it can be edited to match projects needs.
 
 ## TODO
