@@ -1,30 +1,37 @@
-#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOySzYGaU8FiLAmq9/kTKGqgU/ZKl53pbWg51F2otR94 cristianordonezrd@gmail.com
  <PROJECT_NAME>
 Template repository for creating extendable and modern python cli and gui applications. Well documented configuration files so it can be edited to match projects needs.
 
 ## TODO
 
-- install package
+- add subcommand with subcommand registry
+
+- add branch protection rules on repository
+
+- update AUTHORS file
+
+- add config.ini support for arguments
 
 - run and configure test suite for python 3.12, 3.13, and 3.14
 
-- set up argparse with debug, version arguments
-
 - set up ty type checking and ruff
+
+- set up sphinx documentation
 
 - set up pre commit
 
+- change versioning to use semantic versioning instead of date
+
 - containerize with docker
+
+- add option to run jobs/commands in parallel use a parallel runner class that can change between using threads and processes
 
 - set up github actions - lint, format, type check, build, test, deploy package to github packages
 
-- create workflow to update version in __version__.py
-
-- create workflow to change current version on pyproject.toml before build
+- create workflow to update version in __version__.py, consider using uv or hatch to release new version
 
 - Update README.md
 
-
+- For practice app, create mcp server that pulls in official academy of nutrition and dietetics textbooks for context
 
 # Development
 
@@ -63,7 +70,27 @@ uv sync
 - Run application
 
 ```bash
-uv run python -m python-template
+uv run python -m python_template
+```
+
+- To add packages to repository, use following command from the root of the repository:
+
+```bash
+uv add pydantic
+```
+
+# Pre-Commit
+
+- Install pre-commit with uv
+
+```bash
+uv tool install pre-commit
+```
+
+- Install git-hooks scripts
+
+```bash
+pre-commit install
 ```
 
 # Testing
