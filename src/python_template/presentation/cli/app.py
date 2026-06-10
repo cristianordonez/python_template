@@ -7,7 +7,10 @@ import pathlib
 import sys
 
 from python_template import VERSION
-from python_template.commands.build.app import BuildCommand
+from python_template.commands import load_commands
+from python_template.commands.registry import COMMAND_REGISTRY
+
+# from python_template.commands.build.app import BuildCommandGroup
 from python_template.logger import setup_logging
 
 
@@ -17,9 +20,12 @@ def main(args: list[str] | None = None) -> None:
         args: list[str] = sys.argv[1:]
     root = create_root_parser()
     subparser = root.add_subparsers(dest="command", required=True)
-    commands = [BuildCommand()]
+    load_commands("python_template.commands")
+    commands = COMMAND_REGISTRY.values()
+    print("commands: ", commands)
     for command in commands:
-        command.register(subparser)
+        cmd_instance = command()
+        cmd_instance.register(subparser)
     options = root.parse_args(args)
     logger = setup_logging(
         options.debug,

@@ -4,9 +4,9 @@ Template repository for creating extendable and modern python cli and gui applic
 
 ## TODO
 
-- add subcommand with subcommand registry
+- generate command line options using pydantic models
 
-- add branch protection rules on repository
+- add config.ini support for command line options
 
 - update AUTHORS file
 
@@ -14,7 +14,7 @@ Template repository for creating extendable and modern python cli and gui applic
 
 - run and configure test suite for python 3.12, 3.13, and 3.14
 
-- set up ty type checking and ruff
+- set up ty type checking and ruff using pre commit
 
 - set up sphinx documentation
 
@@ -28,7 +28,10 @@ Template repository for creating extendable and modern python cli and gui applic
 
 - set up github actions - lint, format, type check, build, test, deploy package to github packages
 
+
 - create workflow to update version in __version__.py, consider using uv or hatch to release new version
+
+- add branch protection rules on repository
 
 - Update README.md
 
