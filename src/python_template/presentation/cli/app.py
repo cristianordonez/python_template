@@ -9,8 +9,6 @@ import sys
 from python_template import VERSION
 from python_template.commands import load_commands
 from python_template.commands.registry import COMMAND_REGISTRY
-
-# from python_template.commands.build.app import BuildCommandGroup
 from python_template.logger import setup_logging
 
 
